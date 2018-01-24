@@ -4,11 +4,11 @@ from cw.models import Votes
 from django.shortcuts import render, HttpResponse
 import json
 
-def index(request):
+def votes(request):
     context = {}
     return render(request, 'index.html', context)
 
-def vote(request):
+def index(request):
     context = {}
     return render(request, 'vote.html', context)
 

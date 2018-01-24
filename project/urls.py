@@ -10,7 +10,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     url(r'^$', views.index, name='index'),
-    url(r'^vote$', views.vote, name='vote'),
+    url(r'^votes$', views.votes, name='votes'),
     url(r'^cast-vote$', views.cast_vote, name='cast_vote'),
     url(r'^get-votes$', views.get_votes, name='get_votes'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
