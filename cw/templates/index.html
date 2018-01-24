@@ -1,0 +1,127 @@
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/style.css"/>
+</head>
+<body>
+    <div class="container">
+        <div class="intro-wrapper">
+            <h1 class="text-center">Visual Sedimentation</h1>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="/static/img/giphy.gif">
+                </div>
+                <div class="col-md-8 intro">
+                    <p>- a novel design metaphor for visualizing data streams directly inspired by the physical process of sedimentation</p>
+                    <p>- smoothing the transition between incoming and aging data</p>
+                    <p>- <a href="https://hal.inria.fr/file/index/docid/846260/filename/visual_sedimentation_camera_ready3.pdf">
+                    Visual Sedimentation Samuel Huron, Romain Vuillemot, Jean-Daniel Fekete, IEEE Vis, 2013</a></p>
+                    <p>- <a href="http://hal.inria.fr/docs/00/73/40/84/PDF/visual-sedimentation-final.pdf">
+                    Towards Visual Sedimentation Samuel Huron, Romain Vuillemot, Jean-Daniel Fekete, IEEE Infovis, 2012
+                    </a></p>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <h1 class="text-center">Where would you like to go for a class trip this summer?</h1>
+        <div class="row">
+            <div class="col-md-3 option pos-0">
+                <button>Nairobi</button>
+                <div id="cat-nairobi" class="per">0<small>%</small></div>
+                <div id="nairobi">0</div>
+            </div>
+            <div class="col-md-3 option pos-1">
+                <button>Athens</button>
+                <div id="cat-athens" class="per">0 <small>%</small></div>
+                <div id="athens">0</div>
+            </div>
+            <div class="col-md-3 option pos-2">
+                <button>Bangkok</button>
+                <div id="cat-bangkok" class="per">0 <small>%</small></div>
+                <div id="bangkok">0</div>
+            </div>
+            <div class="col-md-3 option pos-3">
+                <button>Reykjavik</button>
+                <div id="cat-reykjavik" class="per">0 <small>%</small></div>
+                <div id="reykjavik">0</div>
+            </div>
+        </div>
+
+        <div id="barChart"></div>
+        <br clear="all">
+        <hr>
+
+    </div>
+
+<script type="text/javascript" src="/static/js/vs/VisualSedimentation.js"></script>
+<script type="text/javascript" src="static/js/js.js"></script>
+<script>
+     mySettings = {
+          width:$(".container").width(),
+          height:400,
+          data:{
+                model:
+                        [
+                          {label:"Nairobi"},
+                          {label:"Athens"},
+                          {label:"Bangkok"},
+                          {label:"Reykjavik"},
+                        ],
+                strata:[
+                          [
+                            {initValue: 0, label: "Strata 1 col A"},
+                          ],[
+                            {initValue: 0, label: "Strata 1 col B"},
+                          ],[
+                            {initValue: 0, label: "Strata 1 col C"}
+                          ],[
+                            {initValue: 0, label: "Strata 1 col D"}
+                          ]
+                        ],
+                stream:{
+                  provider:'',
+                  //provider:'direct',
+                  //refresh:10000/6
+                }
+              },
+          sedimentation:{
+            aggregation:{
+              height:50
+            },
+            token:{
+              size:{original:20,minimum:5,},
+            },
+            suspension:{
+              decay:{power:1}
+            }
+
+          },
+          chart:{
+                 width:$(".container").width(),
+                 height:380,
+                 wallColor:"rgba(230,230,230,0.5)",
+                 floorColor:"rgba(230,230,230,0.5)",
+                 type:'StackedAreaChart',
+                 spacer:0,
+                 radius:50,
+                },
+          options:{
+            layout:false
+          }
+        }
+	var myBarChart =  $("#barChart").vs(mySettings).data('visualSedimentation');
+	function addToken1(){
+        myBarChart.addToken({category:0})
+    }
+    function addToken2(){
+        myBarChart.addToken({category:1})
+    }
+    function addToken3(){
+        myBarChart.addToken({category:2})
+    }
+    function addToken4(){
+        myBarChart.addToken({category:3})
+    }
+</script>
+</body>
