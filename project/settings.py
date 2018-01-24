@@ -25,7 +25,7 @@ DEBUG = True
 TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = [
-    "138.68.25.72, mevey.co.ke"
+    "138.68.25.72, info.mevey.co.ke"
 ]
 
 
@@ -85,9 +85,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+#STATIC_ROOT = '/opt/DroppingBalls/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
+#    os.path.join(BASE_DIR, "static"),
     '/var/www/static/',
 ]
+
 LOGIN_REDIRECT_URL = '/'
 PRIVATE_FILES = os.path.join(BASE_DIR, "files")
