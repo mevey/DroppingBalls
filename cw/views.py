@@ -1,5 +1,3 @@
-from django.contrib.auth.decorators import login_required
-from django.conf import settings
 from cw.models import Votes
 from django.shortcuts import render, HttpResponse
 import json
@@ -7,6 +5,10 @@ import json
 def votes(request):
     context = {}
     return render(request, 'index.html', context)
+
+def info(request):
+    context = {}
+    return render(request, 'info.html', context)
 
 def index(request):
     context = {}
