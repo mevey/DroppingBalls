@@ -25,7 +25,8 @@ DEBUG = True
 TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = [
-    "138.68.25.72, info.mevey.co.ke"
+    "138.68.25.72, info.mevey.co.ke",
+    '127.0.0.1'
 ]
 
 
@@ -87,8 +88,24 @@ STATIC_URL = '/static/'
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 #STATIC_ROOT = '/opt/DroppingBalls/static/'
 STATICFILES_DIRS = [
-#    os.path.join(BASE_DIR, "static"),
-    '/var/www/static/',
+   os.path.join(BASE_DIR, "static"),
+#     '/var/www/static/',
+]
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
 ]
 
 LOGIN_REDIRECT_URL = '/'

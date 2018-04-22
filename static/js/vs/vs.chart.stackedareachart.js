@@ -97,6 +97,7 @@ $.fn._vs.chart.StackedAreaChart = function(_this,fn,options) {
               y:(_this.settings.sedimentation.incoming.point[i].y+(Math.random()*1)),
               t:_this.now(),
               size:_this.settings.sedimentation.token.size.original,
+              texture:_this.settings.sedimentation.token.texture,
               category:i,
               lineWidth:0,
             

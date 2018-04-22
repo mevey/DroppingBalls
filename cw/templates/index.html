@@ -6,25 +6,25 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="text-center">Where would you like to go for a class trip this summer?</h1>
+        <h1 class="text-center">Real time Emoji use</h1>
         <div class="row">
             <div class="col-md-3 option pos-0">
-                <button>Nairobi</button>
+                <button>Happy face</button>
                 <div id="cat-nairobi" class="per">0<small>%</small></div>
                 <div id="nairobi">0</div>
             </div>
             <div class="col-md-3 option pos-1">
-                <button>Athens</button>
+                <button>Tears of joy</button>
                 <div id="cat-athens" class="per">0 <small>%</small></div>
                 <div id="athens">0</div>
             </div>
             <div class="col-md-3 option pos-2">
-                <button>Bangkok</button>
+                <button>Heart</button>
                 <div id="cat-bangkok" class="per">0 <small>%</small></div>
                 <div id="bangkok">0</div>
             </div>
             <div class="col-md-3 option pos-3">
-                <button>Reykjavik</button>
+                <button>Cool Face</button>
                 <div id="cat-reykjavik" class="per">0 <small>%</small></div>
                 <div id="reykjavik">0</div>
             </div>
@@ -37,7 +37,7 @@
     </div>
 
 <script type="text/javascript" src="/static/js/vs/VisualSedimentation.js"></script>
-<script type="text/javascript" src="static/js/js.js"></script>
+<script type="text/javascript" src="/static/js/js.js"></script>
 <script>
      mySettings = {
           width:$(".container").width(),
@@ -72,7 +72,11 @@
               height:50
             },
             token:{
-              size:{original:20,minimum:5,},
+              size:{
+                original:40,
+                minimum:5,
+              },
+              texture: {src: '/static/img/poop.png'},
             },
             suspension:{
               decay:{power:1}

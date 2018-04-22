@@ -95,7 +95,7 @@ $.fn._vs.token = {
 
         // Graphic Parameter
         size:10,   fillStyle:'###',  strokeStyle:'rgba(0,0,0,0)', lineWidth:0, texture:undefined,
-        shape:{type:'round'}, // vertice, box, round, ?? svg path with json serialisation {}        
+        shape:{type:'round'}, // vertice, box, round, ?? svg path with json serialisation {}
         userdata:{},
 
         // Interactions callbacks 
@@ -126,6 +126,7 @@ $.fn._vs.token = {
         if(typeof(token.setting.x)      =='undefined') {token.setting.x      = _this.settings.sedimentation.incoming.point[element.category].x+(Math.random()*2)}
         if(typeof(token.setting.y)      =='undefined') {token.setting.y      = _this.settings.sedimentation.incoming.point[element.category].y+(Math.random()*2)}
         if(typeof(token.setting.size)   =='undefined') {token.setting.size   = _this.settings.sedimentation.token.size.original}
+        if(typeof(token.setting.texture)   =='undefined') {token.setting.texture   = _this.settings.sedimentation.token.texture}
         if(typeof(token.setting.targets)=='undefined') {token.setting.targets=[]}
         token.setting.ID = token.setting.ID = this.ID(_this)
         if(typeof(token.setting.state)  =='undefined') {token.setting.state  = 0}
@@ -247,9 +248,9 @@ $.fn._vs.token = {
 
       if(typeof(token.texture)!="undefined"){
         var tx = token.texture;
-        tx.img = new Image();
+        tx.img = new Image(),
         tx.img.onload = function() {
-           tx.pattern = document.createElement('canvas').getContext('2d').createPattern(tx.img, 'repeat');
+           tx.pattern = document.createElement('canvas').getContext('2d').createPattern(tx.img, 'no-repeat');
         }
         tx.img.src = tx.src;
       }
@@ -258,7 +259,7 @@ $.fn._vs.token = {
         this.applyImpulse(this.myobj,token.impulse.angle,token.impulse.power);
       }
 
-      if(typeof(token.fillStyle) =="undefined"){   token.fillStyle  = this.colorRange(token.category) }
+      if(typeof(token.fillStyle) =="undefined"){   token.fillStyle  = "rgba(255,255,255,0.8)"} //this.colorRange(token.category) }
       //if(typeof(token.stokeStyle)=="undefined"){   token.stokeStyle = "#000"}//"rgba(0,0,0,0.5)" }
       if(typeof(token.lineWidth) =="undefined"){   token.lineWidth  = 0 }
       if(typeof(token.type)  =="undefined"){       token.type="token"   }

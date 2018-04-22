@@ -135,6 +135,7 @@ $.fn._vs.chart.CircleLayout = function(_this,fn,options) {
               y:(_this.settings.sedimentation.incoming.point[i].y+(Math.random()*1)),
               t:_this.now(),
               size:_this.settings.sedimentation.token.size.original,
+              texture:_this.settings.sedimentation.token.texture,
               category:i,
               phy:{
                   density:10,
@@ -170,7 +171,7 @@ $.fn._vs.chart.CircleLayout = function(_this,fn,options) {
     bodyDef.position.Set(centerSceneX/scale, centerSceneY/scale);
 
     var axis            = _this.world.CreateBody(bodyDef).CreateFixture(fixDef);
-    axis.m_userData     = {type:"wall",familyID:null,fillStyle:color,strokeStyle:color,r:radius}
+    axis.m_userData     = {type:"wall",familyID:null,fillStyle:rgba(0,0,0,0),strokeStyle:color,r:radius}
     return  axis;
   }
 
